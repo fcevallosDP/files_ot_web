@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="Catalog"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+        <style>
+            body{
+                overflow-y: hidden !important;
+                overflow-x: hidden !important;
+            }
+            .ui-datatable-footer{
+                padding: 0px !important;
+            }
+        </style>             
+            <h:form id="TblCatalogListForm" style="width: 80%; margin: 0 auto;">
+                <p:panel header="Catalogo" style="width:75%;overflow:auto;">
+                    <p:dataTable id="datalist" value="#{tblCatalogController.items}" var="item"
+                                 selectionMode="single" selection="#{tblCatalogController.selected}"
+                                 rowKey="#{item.id}"
+                                 scrollRows="20"
+                                 liveScroll="true"
+                                 scrollable="true"
+                                 scrollHeight="300"
+                                 style="width:100%"
+                                 resizableColumns="true"         
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton editButton deleteButton"/>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTblCatalogTitle_VType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.VType}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTblCatalogTitle_VValue}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.VValue}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTblCatalogTitle_VPattern}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.VPattern}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="Create" actionListener="#{tblCatalogController.prepareCreate}" update=":TblCatalogCreateForm" oncomplete="PF('TblCatalogCreateDialog').show()"/>                            
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="Edit" update=":TblCatalogEditForm" oncomplete="PF('TblCatalogEditDialog').show()" disabled="#{empty tblCatalogController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="Delete" actionListener="#{tblCatalogController.destroy}" update=":growl,datalist" disabled="#{empty tblCatalogController.selected}">
+                                <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
+                            </p:commandButton>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>
