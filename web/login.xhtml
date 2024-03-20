@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+   <h:head>
+        <title>RawData Sign In</title>
+        
+        <h:outputStylesheet name="css/layout.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+    
+    <h:body id="CuerpoLogin">
+        
+        <p:growl id="growl" life="3000" />
+
+        <div class="content-section implementation">
+            <div class="card">
+                <div class="subImage">
+                    <p:graphicImage url="#{resource['backGround.png']}" title=":: RawData ::" style="opacity: 10%; width: 80%;float: right"/>
+                </div>                   
+                <h:form id="loginForm" prependId="false">
+                    <p:messages id="msg" closable="true" />                            
+                    <div class="field grid">
+                        <p:outputLabel for="username" styleClass="col-fixed" style="width:100px" value="User"/>
+                        <div class="col">
+                            <p:inputText id="username" value="#{LoginBean.username}" required="true" requiredMessage="Username is required!"/>
+                        </div>
+                    </div>                
+                    <div class="field grid">
+                        <p:outputLabel for="pwd1" styleClass="col-fixed" style="width:100px" value="Password"/>
+                        <div class="col">
+                            <p:password id="pwd1" value="#{LoginBean.password}" toggleMask="true" redisplay="true" required="true" requiredMessage="Password is required!"/>
+                        </div>
+                    </div>                                                
+                    <div class="field grid">                        
+                        <div class="col">
+                            <p:commandButton id="LoginButton" action="#{LoginBean.login}" value="Login" update=":loginForm, msg" ajax="true" style="text-align: center !important;"/>
+                        </div>
+                    </div>                                                   
+                    <p:poll listener="#{LoginBean.keepUserSessionAlive()}" interval="50000"/>        
+                </h:form>
+            </div>                      
+        </div>    
+        <p:idleMonitor  timeout="50000">
+            <p:ajax event="idle" update="@none"/>
+            <p:ajax event="active" update="@none"/>
+        </p:idleMonitor>      
+    </h:body>
+</html>

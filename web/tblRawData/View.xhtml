@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TblRawDataViewDlg" widgetVar="TblRawDataViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTblRawDataTitle}">
+            <h:form id="TblRawDataViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tblRawDataController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_idraw}"/>
+                        <h:outputText value="#{tblRawDataController.selected.idraw}" title="#{bundle.ViewTblRawDataTitle_idraw}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_DDate}"/>
+                        <h:outputText value="#{tblRawDataController.selected.DDate}" title="#{bundle.ViewTblRawDataTitle_DDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VPartner}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VPartner}" title="#{bundle.ViewTblRawDataTitle_VPartner}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VCampaign}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VCampaign}" title="#{bundle.ViewTblRawDataTitle_VCampaign}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VInsertionOrder}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VInsertionOrder}" title="#{bundle.ViewTblRawDataTitle_VInsertionOrder}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VLineItem}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VLineItem}" title="#{bundle.ViewTblRawDataTitle_VLineItem}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VExchange}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VExchange}" title="#{bundle.ViewTblRawDataTitle_VExchange}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VDealName}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VDealName}" title="#{bundle.ViewTblRawDataTitle_VDealName}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_IImpressions}"/>
+                        <h:outputText value="#{tblRawDataController.selected.IImpressions}" title="#{bundle.ViewTblRawDataTitle_IImpressions}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_IClicks}"/>
+                        <h:outputText value="#{tblRawDataController.selected.IClicks}" title="#{bundle.ViewTblRawDataTitle_IClicks}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_DMediaCost}"/>
+                        <h:outputText value="#{tblRawDataController.selected.DMediaCost}" title="#{bundle.ViewTblRawDataTitle_DMediaCost}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_DTotalMediaCost}"/>
+                        <h:outputText value="#{tblRawDataController.selected.DTotalMediaCost}" title="#{bundle.ViewTblRawDataTitle_DTotalMediaCost}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VDSP}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VDSP}" title="#{bundle.ViewTblRawDataTitle_VDSP}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VClient}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VClient}" title="#{bundle.ViewTblRawDataTitle_VClient}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VAgency}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VAgency}" title="#{bundle.ViewTblRawDataTitle_VAgency}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VChannel}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VChannel}" title="#{bundle.ViewTblRawDataTitle_VChannel}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VAlias}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VAlias}" title="#{bundle.ViewTblRawDataTitle_VAlias}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VVendor}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VVendor}" title="#{bundle.ViewTblRawDataTitle_VVendor}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VVendorSource}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VVendorSource}" title="#{bundle.ViewTblRawDataTitle_VVendorSource}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_DCPM}"/>
+                        <h:outputText value="#{tblRawDataController.selected.DCPM}" title="#{bundle.ViewTblRawDataTitle_DCPM}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_DCTR}"/>
+                        <h:outputText value="#{tblRawDataController.selected.DCTR}" title="#{bundle.ViewTblRawDataTitle_DCTR}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_DCPC}"/>
+                        <h:outputText value="#{tblRawDataController.selected.DCPC}" title="#{bundle.ViewTblRawDataTitle_DCPC}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_IAnio}"/>
+                        <h:outputText value="#{tblRawDataController.selected.IAnio}" title="#{bundle.ViewTblRawDataTitle_IAnio}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_IMes}"/>
+                        <h:outputText value="#{tblRawDataController.selected.IMes}" title="#{bundle.ViewTblRawDataTitle_IMes}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_IDia}"/>
+                        <h:outputText value="#{tblRawDataController.selected.IDia}" title="#{bundle.ViewTblRawDataTitle_IDia}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_DSystemDate}"/>
+                        <h:outputText value="#{tblRawDataController.selected.DSystemDate}" title="#{bundle.ViewTblRawDataTitle_DSystemDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_VFileName}"/>
+                        <h:outputText value="#{tblRawDataController.selected.VFileName}" title="#{bundle.ViewTblRawDataTitle_VFileName}"/>
+                        <h:outputText value="#{bundle.ViewTblRawDataLabel_TEstado}"/>
+                        <p:selectBooleanCheckbox value="#{tblRawDataController.selected.TEstado}" disabled="true"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TblRawDataViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
